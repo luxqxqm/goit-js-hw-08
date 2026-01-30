@@ -91,31 +91,22 @@ function handleClick(event) {
   }
   event.preventDefault()
 
-const currentProduct = event.target.closest('.gallery-link');
-const findSource =  event.target.dataset.source
-console.log(findSource);
+  const img = link.querySelector('img')
+if(!img) return
 
-const product = images.find((item) => item.original === findSource) 
+const source = img.dataset.source
 
-const instance = basicLightbox.create(`
-  <div class="modal">
-    <img src = "${product.original}" alt = "${product.description}">
-  </div>  
-  `)
-  instance.show()
+  if(!source) return
+console.log(source);
+
+
+  const product = images.find((item) => item.original=== source) 
+
+  const instance = basicLightbox.create(`
+    <div class="modal">
+    <img src="${product.original}"/>
+    </div>  
+    `)
+    instance.show()
+  
 }
-
-
-
-
-
-  
-  
-
-
-
-
-
-  
-    
-    
