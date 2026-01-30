@@ -91,28 +91,24 @@ function handleClick(event) {
   }
   event.preventDefault()
 
-console.log(event.currentTarget);
+const currentProduct = event.target.closest('.gallery-link');
+const findSource =  event.target.dataset.source
+console.log(findSource);
 
+const product = images.find((item) => item.original === findSource) 
+
+const instance = basicLightbox.create(`
+  <div class="modal">
+    <img src = "${product.original}" alt = "${product.description}">
+  </div>  
+  `)
+  instance.show()
 }
 
-gallery.addEventListener('click' , functionClick)
 
 
 
 
-function functionClick(event) {
-  const currentProduct = event.target.closest('.gallery-link');
-  const findSource =  event.target.dataset.source
-  
-  const product = images.find((item) => item.original === findSource) 
-  
-  const instance = basicLightbox.create(`
-    <div class="modal">
-      <img src = "${product.original}" alt = "${product.description}">
-    </div>  
-    `)
-    instance.show()
-}
   
   
 
