@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+.gallery {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 0 150px;
+}
+
+.gallery-item {
+  width: calc((100% - 30px) / 3);
+}
+
+img {
+  width: 100%;
+  display: block;
+}
